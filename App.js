@@ -1,11 +1,11 @@
 const App = () => {
   return (
     <div>
-      <h1> Hello From React!</h1>
-      <p>This react app runs without node.js! </p>
+      <h1>Hello from React!</h1>
+      <p>This React app runs without Node.js!</p>
     </div>
   );
 };
 
-const root = ReactDOM.createRoot(doument.getElementById("root"));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(<App />);
