@@ -1,17 +1,23 @@
 const Navbar = () => {
+  const [menuOpen, setMenuOpen] = React.useState(false);
+
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen);
+  };
+
   return (
     <header className="navbar">
       <div className="container nav-container">
         <div className="logo">Sameer</div>
         <nav>
-          <ul className="nav-links">
+          <ul className={`nav-links ${menuOpen ? 'active' : ''}`}>
             <li><a href="https://sameer-jafar-05.github.io/portfolio/index.html" onClick={() => window.location.href = 'index.html'}>Home</a></li>
             <li><a href="https://sameer-jafar-05.github.io/portfolio/about.html" onClick={() => window.location.href = 'about.html'}>About</a></li>
             <li><a href="https://sameer-jafar-05.github.io/portfolio/projects.html" onClick={() => window.location.href = 'projects.html'}>Projects</a></li>
             <li><a href="https://sameer-jafar-05.github.io/portfolio/contact.html" onClick={() => window.location.href = 'contact.html'}>Contact</a></li>
           </ul>
         </nav>
-        <div className="mobile-menu">
+        <div className="mobile-menu" onClick={toggleMenu}>
           <span></span>
           <span></span>
           <span></span>
@@ -19,4 +25,4 @@ const Navbar = () => {
       </div>
     </header>
   );
-}; 
+};
