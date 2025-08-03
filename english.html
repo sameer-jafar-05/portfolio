@@ -3,30 +3,34 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>english</title>
+  <title>English - Shaik Sameer</title>
   <link rel="stylesheet" href="styles/main.css" />
 </head>
 <body>
   <div id="root"></div>
 
+  <!-- React & Babel -->
   <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
   <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
+  <!-- Components -->
   <script type="text/babel" src="components/Navbar.js"></script>
-  <script type="text/babel" src="components/AboutSection.js"></script>
+  <script type="text/babel" src="components/EnglishSection.js"></script>
   <script type="text/babel" src="components/Footer.js"></script>
 
+  <!-- Render -->
   <script type="text/babel">
-    const EnglishPage= () => (
+    const EnglishPage = () => (
       <>
         <Navbar />
         <EnglishSection />
         <Footer />
       </>
     );
+
     const root = ReactDOM.createRoot(document.getElementById('root'));
-    root.render(<EnglishPage/>);
+    root.render(<EnglishPage />);
   </script>
 </body>
 </html>
