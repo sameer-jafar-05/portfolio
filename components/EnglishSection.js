@@ -1,46 +1,47 @@
 const EnglishSection = () => {
-  const [selectedSentence, setSelectedSentence] = React.useState(null);
+  const [showSentence, setShowSentence] = React.useState(false);
 
-  const images = [
-    { src: "images/english1.jpg", sentence: "This is a common greeting used in daily conversation." },
-    { src: "images/english2.jpg", sentence: "Practice makes perfect in spoken English." },
-    { src: "images/english3.jpg", sentence: "Speak confidently without worrying about grammar." },
-    { src: "images/english4.jpg", sentence: "Try to think in English for faster fluency." },
+  const imageData = [
+    { src: "images/english1.jpg", sentence: "Good morning! — A polite way to greet someone in the morning." },
+    { src: "images/english2.jpg", sentence: "How are you? — A common way to start a conversation." },
+    { src: "images/english3.jpg", sentence: "Can you help me? — Useful when asking for assistance." },
+    { src: "images/english4.jpg", sentence: "Nice to meet you! — A friendly phrase when meeting someone new." }
   ];
 
-  // Shuffle the array
-  const shuffledImages = React.useMemo(() => {
-    return [...images].sort(() => 0.5 - Math.random());
+  // Pick one random image only (runs once)
+  const randomImage = React.useMemo(() => {
+    const randomIndex = Math.floor(Math.random() * imageData.length);
+    return imageData[randomIndex];
   }, []);
-
-  const handleClick = (sentence) => {
-    setSelectedSentence(sentence);
-  };
 
   return (
     <section className="section">
       <div className="container section-header">
-        <h2>Learn Spoken English</h2>
-        <p>Tap an image to reveal a useful sentence tip</p>
+        <h2>Spoken English Tip</h2>
+        <p>Tap the image to reveal the English phrase</p>
       </div>
 
-      <div className="container image-gallery" style={{ display: 'grid', gap: '1rem', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))' }}>
-        {shuffledImages.map((item, index) => (
-          <img
-            key={index}
-            src={item.src}
-            alt={`English Tip ${index + 1}`}
-            onClick={() => handleClick(item.sentence)}
-            style={{ width: '100%', borderRadius: '12px', cursor: 'pointer', boxShadow: '0 2px 8px rgba(0,0,0,0.1)' }}
-          />
-        ))}
-      </div>
+      <div className="container" style={{ textAlign: "center" }}>
+        <img
+          src={randomImage.src}
+          alt="English Tip"
+          onClick={() => setShowSentence(true)}
+          style={{
+            width: "100%",
+            maxWidth: "350px",
+            borderRadius: "12px",
+            cursor: "pointer",
+            boxShadow: "0 5px 20px rgba(0,0,0,0.1)",
+            transition: "0.3s"
+          }}
+        />
 
-      {selectedSentence && (
-        <div className="container" style={{ marginTop: '2rem', textAlign: 'center', fontSize: '1.2rem', color: '#2563eb', fontWeight: '600' }}>
-          🗣️ {selectedSentence}
-        </div>
-      )}
+        {showSentence && (
+          <p style={{ marginTop: "1.5rem", fontSize: "1.2rem", color: "#2563eb", fontWeight: "600" }}>
+            🗣️ {randomImage.sentence}
+          </p>
+        )}
+      </div>
     </section>
   );
 };
