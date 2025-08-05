@@ -8,7 +8,7 @@ const Navbar = () => {
   return (
     <header className="navbar">
       <div className="container nav-container">
-        <div className="logo">Sameer</div>
+        <div className="logo">Saifuddin</div>
         <nav>
           <ul className={`nav-links ${menuOpen ? 'active' : ''}`}>
             <li><a href="https://sameer-jafar-05.github.io/portfolio/index.html" onClick={() => window.location.href = 'index.html'}>Home</a></li>
